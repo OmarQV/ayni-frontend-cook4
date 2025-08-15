@@ -151,12 +151,12 @@ To use the application, you need to add the Mantle Sepolia network to your MetaM
 ## 📜 Smart Contracts
 
 ### AyniPasses.sol (ERC-721) 🎫
-- **Address**: `0x1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D7E8F9A0B`
-- **Explorer**: [View on Mantle Explorer](https://explorer.sepolia.mantle.xyz/address/0x1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D7E8F9A0B)
+- **Address**: `0x89CD07106d50468C7F2446954De0c2cAB94b676d`
+- **Explorer**: [View on Mantle Explorer](https://explorer.sepolia.mantle.xyz/address/0x89CD07106d50468C7F2446954De0c2cAB94b676d)
 
 ### AyniCommemorativeNFTs.sol (ERC-1155) 🏆
-- **Address**: `0xA0B1C2D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9`
-- **Explorer**: [View on Mantle Explorer](https://explorer.sepolia.mantle.xyz/address/0xA0B1C2D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9)
+- **Address**: `0xf0f9F3C55A53EFcf338b01a148B8581B6aCF6D4B`
+- **Explorer**: [View on Mantle Explorer](https://explorer.sepolia.mantle.xyz/address/0xf0f9F3C55A53EFcf338b01a148B8581B6aCF6D4B)
 
 ## 🎯 Core Functionalities
 

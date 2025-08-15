@@ -21,7 +21,7 @@ function Estrellas({ cantidad }) {
   );
 }
 
-// Componente para añadir control de búsqueda
+// Component to add search control
 function ControlBusqueda() {
   const map = useMap();
   useEffect(() => {
@@ -33,7 +33,7 @@ function ControlBusqueda() {
 }
 
 function MapaInteractivo() {
-  const [position, setPosition] = useState([-16.2902, -63.5887]); // Centro Bolivia
+  const [position, setPosition] = useState([-16.2902, -63.5887]); // Bolivia center
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -43,7 +43,7 @@ function MapaInteractivo() {
     }
   }, []);
 
-  // Ícono personalizado
+  // Custom icon
   const customIcon = new L.Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/854/854878.png",
     iconSize: [35, 35],
@@ -60,8 +60,7 @@ function MapaInteractivo() {
 
       <ControlBusqueda />
 
-
-      {/* Marcadores de atracciones */}
+      {/* Attraction markers */}
       {sitiosCertificados.map((sitio) => (
         <Marker
           key={sitio.id}
@@ -77,7 +76,7 @@ function MapaInteractivo() {
                 💰 {sitio.tokens} Tokens
               </p>
               <button className="mt-2 w-full bg-primary text-white py-1 rounded hover:bg-primary-focus transition">
-                Canjear Tokens
+                Redeem Tokens
               </button>
             </div>
           </Popup>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, QrCode, Gift, MapPin, Star, X, CheckCircle, Loader } from 'lucide-react';
-import NFTModal from './profile/NFTModal'; // Asegúrate de que la ruta sea correcta
+import NFTModal from './profile/NFTModal'; // Ensure the path is correct
 
 const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
   const [scanningMode, setScanningMode] = useState('camera');
@@ -12,7 +12,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
   const [scanning, setScanning] = useState(false);
   const [showNFTModal, setShowNFTModal] = useState(false);
 
-  // Datos QR fijos - todo en memoria temporal
+  // Fixed QR data - all in temporary memory
   const mockQRData = {
     'AYNI-COL-001': {
       location: 'Hacienda Cafetera El Paraíso',
@@ -21,68 +21,68 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
       coordinates: '4.5981, -75.2958',
       nft: {
         id: 301,
-        title: 'Café Colombiano NFT',
+        title: 'Colombian Coffee NFT',
         issuedDate: new Date().toISOString().split('T')[0],
         imageUrl: 'https://img.freepik.com/foto-gratis/delicioso-cafe-organico-naturaleza-muerta_23-2151762341.jpg?semt=ais_hybrid&w=740&q=80',
         valor: '0.05 ETH',
         beneficioComunidad: '30%',
         metadata: { fotos: 3, audios: 1, qrVerified: true },
-        description: 'Has visitado una auténtica hacienda cafetera en el corazón de Colombia',
-        rarity: 'Común',
+        description: 'You have visited an authentic coffee farm in the heart of Colombia',
+        rarity: 'Common',
         points: 50
       }
     },
     'AYNI-PER-002': {
       location: 'Machu Picchu',
       country: 'Perú',
-      route: 'Camino Inca Ancestral',
+      route: 'Ancestral Inca Trail',
       coordinates: '-13.1631, -72.5450',
       nft: {
         id: 302,
-        title: 'Ciudadela Inca NFT',
+        title: 'Inca Citadel NFT',
         issuedDate: new Date().toISOString().split('T')[0],
         imageUrl: 'https://content-viajes.nationalgeographic.com.es/medio/2018/03/01/machu-picchu_5ff969ae_1280x720.jpg',
         valor: '0.08 ETH',
         beneficioComunidad: '40%',
         metadata: { fotos: 5, audios: 2, qrVerified: true },
-        description: 'Has explorado la majestuosa ciudadela de Machu Picchu',
-        rarity: 'Épico',
+        description: 'You have explored the majestic citadel of Machu Picchu',
+        rarity: 'Epic',
         points: 150
       }
     },
     'AYNI-BOL-003': {
       location: 'Salar de Uyuni',
       country: 'Bolivia',
-      route: 'Altiplano Boliviano',
+      route: 'Bolivian Altiplano',
       coordinates: '-20.1338, -67.4891',
       nft: {
         id: 303,
-        title: 'Espejo del Cielo NFT',
+        title: 'Sky Mirror NFT',
         issuedDate: new Date().toISOString().split('T')[0],
         imageUrl: 'https://uploads.exoticca.com/global/destination/poi/salar-uyuni.png',
         valor: '0.10 ETH',
         beneficioComunidad: '50%',
         metadata: { fotos: 4, audios: 1, qrVerified: true },
-        description: 'Has caminado sobre el espejo más grande del mundo',
-        rarity: 'Legendario',
+        description: 'You have walked on the largest mirror in the world',
+        rarity: 'Legendary',
         points: 200
       }
     },
     'AYNI-ECU-004': {
-      location: 'Mercado de Otavalo',
+      location: 'Otavalo Market',
       country: 'Ecuador',
-      route: 'Tradiciones Andinas',
+      route: 'Andean Traditions',
       coordinates: '0.2343, -78.2628',
       nft: {
         id: 304,
-        title: 'Textil Ancestral NFT',
+        title: 'Ancestral Textile NFT',
         issuedDate: new Date().toISOString().split('T')[0],
         imageUrl: 'https://pieraceresa.cl/cdn/shop/articles/textil-unsplash.jpg?v=1659477454&width=1100',
         valor: '0.06 ETH',
         beneficioComunidad: '35%',
         metadata: { fotos: 3, audios: 1, qrVerified: true },
-        description: 'Has descubierto las tradiciones textiles de los pueblos andinos',
-        rarity: 'Raro',
+        description: 'You have discovered the textile traditions of the Andean peoples',
+        rarity: 'Rare',
         points: 75
       }
     }
@@ -101,7 +101,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
   const startCamera = async () => {
     try {
       setScanning(true);
-      // Simula el escaneo automático después de 3 segundos
+      // Simulate automatic scanning after 3 seconds
       setTimeout(() => {
         const randomCodes = Object.keys(mockQRData);
         const randomCode = randomCodes[Math.floor(Math.random() * randomCodes.length)];
@@ -123,7 +123,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
 
   const processQRCode = async (qrCode) => {
     setIsProcessing(true);
-    // Simula procesamiento
+    // Simulate processing
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     if (mockQRData[qrCode]) {
@@ -139,7 +139,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
 
   const mintNFT = async (locationData) => {
     try {
-      // Simula el proceso de minteo
+      // Simulate minting process
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       const mintedNFT = {
@@ -150,14 +150,14 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
         gasUsed: '0.00012 MNT',
         blockNumber: 1500000 + locationData.nft.id,
         metadata: locationData.nft.metadata,
-        mintedAt: new Date().toISOString() // Timestamp del minteo
+        mintedAt: new Date().toISOString() // Mint timestamp
       };
       
       setNftMinted(mintedNFT);
       setMintingStatus('success');
       setIsProcessing(false);
       
-      // Envía el NFT minteado al componente padre (NFTGrid)
+      // Send the minted NFT to the parent component (NFTGrid)
       if (onNFTMinted) {
         onNFTMinted(mintedNFT);
       }
@@ -204,7 +204,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
               <QrCode className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-900">Escanear QR</h2>
+              <h2 className="text-xl font-bold text-gray-900">Scan QR</h2>
               <p className="text-sm text-gray-600">Travel-to-Earn</p>
             </div>
           </div>
@@ -231,7 +231,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                   }`}
                 >
                   <Camera className="w-4 h-4 inline mr-2" />
-                  Cámara
+                  Camera
                 </button>
                 <button
                   onClick={() => setScanningMode('manual')}
@@ -254,12 +254,12 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                       {scanning ? (
                         <div className="flex flex-col items-center text-white">
                           <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
-                          <p>Buscando código QR...</p>
+                          <p>Searching for QR code...</p>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center text-white">
                           <Camera className="w-16 h-16 mb-4" />
-                          <p>Simulación de cámara</p>
+                          <p>Camera simulation</p>
                         </div>
                       )}
                     </div>
@@ -276,7 +276,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                   </div>
                   
                   <p className="text-gray-600 text-sm mb-4">
-                    Apunta tu cámara hacia el código QR en el punto de interés
+                    Point your camera at the QR code at the point of interest
                   </p>
                   
                   {!scanning && (
@@ -284,7 +284,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                       onClick={startCamera}
                       className="w-full bg-gradient-to-r from-orange-400 to-pink-500 text-white py-3 rounded-xl font-medium hover:shadow-lg transition-shadow"
                     >
-                      Iniciar Escaneo
+                      Start Scan
                     </button>
                   )}
                 </div>
@@ -295,7 +295,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                 <div>
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Código QR Manual
+                      Manual QR Code
                     </label>
                     <input
                       type="text"
@@ -307,12 +307,12 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                   </div>
                   
                   <div className="bg-blue-50 rounded-xl p-4 mb-4">
-                    <h4 className="font-medium text-blue-900 mb-2">Códigos de Prueba:</h4>
+                    <h4 className="font-medium text-blue-900 mb-2">Test Codes:</h4>
                     <div className="text-sm text-blue-800 space-y-1">
-                      <p><code className="bg-white px-2 py-1 rounded">AYNI-COL-001</code> - Hacienda Cafetera (Colombia)</p>
-                      <p><code className="bg-white px-2 py-1 rounded">AYNI-PER-002</code> - Machu Picchu (Perú)</p>
+                      <p><code className="bg-white px-2 py-1 rounded">AYNI-COL-001</code> - Coffee Farm (Colombia)</p>
+                      <p><code className="bg-white px-2 py-1 rounded">AYNI-PER-002</code> - Machu Picchu (Peru)</p>
                       <p><code className="bg-white px-2 py-1 rounded">AYNI-BOL-003</code> - Salar de Uyuni (Bolivia)</p>
-                      <p><code className="bg-white px-2 py-1 rounded">AYNI-ECU-004</code> - Mercado Otavalo (Ecuador)</p>
+                      <p><code className="bg-white px-2 py-1 rounded">AYNI-ECU-004</code> - Otavalo Market (Ecuador)</p>
                     </div>
                   </div>
                   
@@ -321,7 +321,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                     disabled={!manualCode.trim()}
                     className="w-full bg-gradient-to-r from-orange-400 to-pink-500 text-white py-3 rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-shadow"
                   >
-                    Procesar Código
+                    Process Code
                   </button>
                 </div>
               )}
@@ -338,19 +338,19 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
               {!nftMinted ? (
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Verificando ubicación...
+                    Verifying location...
                   </h3>
                   <p className="text-gray-600">
-                    Confirmando tu visita al destino
+                    Confirming your visit to the destination
                   </p>
                 </div>
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Minteando tu NFT...
+                    Minting your NFT...
                   </h3>
                   <p className="text-gray-600">
-                    Creando tu recuerdo digital en Mantle L2
+                    Creating your digital memory on Mantle L2
                   </p>
                 </div>
               )}
@@ -365,7 +365,7 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                ¡NFT Minteado con Éxito!
+                NFT Minted Successfully!
               </h3>
               
               <div className="bg-gray-50 rounded-xl p-4 mb-4">
@@ -391,13 +391,13 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
               </div>
               
               <div className="bg-green-50 rounded-xl p-4 mb-4">
-                <h5 className="font-medium text-green-900 mb-2">Detalles de la Transacción</h5>
+                <h5 className="font-medium text-green-900 mb-2">Transaction Details</h5>
                 <div className="text-sm text-green-800 space-y-1">
                   <p><strong>Token ID:</strong> #{nftMinted.id}</p>
-                  <p><strong>Valor:</strong> {nftMinted.valor}</p>
-                  <p><strong>Beneficio comunidad:</strong> {nftMinted.beneficioComunidad}</p>
-                  <p><strong>Red:</strong> Mantle L2</p>
-                  <p><strong>Puntos ganados:</strong> +{nftMinted.points}</p>
+                  <p><strong>Value:</strong> {nftMinted.valor}</p>
+                  <p><strong>Community Benefit:</strong> {nftMinted.beneficioComunidad}</p>
+                  <p><strong>Network:</strong> Mantle L2</p>
+                  <p><strong>Points Earned:</strong> +{nftMinted.points}</p>
                 </div>
               </div>
               
@@ -406,13 +406,13 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                   onClick={resetScanner}
                   className="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-200 transition-colors"
                 >
-                  Escanear Otro
+                  Scan Another
                 </button>
                 <button
                   onClick={handleViewDetails}
                   className="flex-1 bg-gradient-to-r from-orange-400 to-pink-500 text-white py-3 rounded-xl font-medium hover:shadow-lg transition-shadow"
                 >
-                  Ver Detalles
+                  View Details
                 </button>
               </div>
             </div>
@@ -426,17 +426,17 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
               </div>
               
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Error al procesar QR
+                Error Processing QR
               </h3>
               <p className="text-gray-600 mb-4">
-                El código QR no es válido o ya fue usado
+                The QR code is invalid or has already been used
               </p>
               
               <button
                 onClick={resetScanner}
                 className="w-full bg-gradient-to-r from-orange-400 to-pink-500 text-white py-3 rounded-xl font-medium hover:shadow-lg transition-shadow"
               >
-                Intentar de Nuevo
+                Try Again
               </button>
             </div>
           )}
@@ -450,11 +450,11 @@ const QRScannerModal = ({ isOpen, onClose, onNFTMinted }) => {
                 <Gift className="w-5 h-5 text-orange-600 mt-0.5" />
                 <div>
                   <h4 className="font-medium text-orange-900 mb-1">
-                    Principio Ayni - Reciprocidad
+                    Ayni Principle - Reciprocity
                   </h4>
                   <p className="text-sm text-orange-800">
-                    Al escanear este QR, contribuyes directamente a la comunidad local 
-                    y recibes un NFT único como recuerdo de tu experiencia.
+                    By scanning this QR, you contribute directly to the local community 
+                    and receive a unique NFT as a memory of your experience.
                   </p>
                 </div>
               </div>
